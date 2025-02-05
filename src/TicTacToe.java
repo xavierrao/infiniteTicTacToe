@@ -173,4 +173,8 @@ public class TicTacToe {
         gameOver = false;
         textLabel.setText("Infinite Tic Tac Toe");
     }
+
+    public static void main(String[] args) throws Exception {
+        TicTacToe ticTacToe = new TicTacToe();
+    }
 }
