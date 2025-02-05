@@ -13,12 +13,11 @@ public class TicTacToe {
     JButton newGameButton = new JButton("New Game");
 
     JButton[][] board = new JButton[3][3];
-    String playerX = "X";
-    String playerO = "O";
-    String currentPlayer = playerX;
+    Player playerX = new Player("X");
+    Player playerO = new Player("O");
+    Player currentPlayer = playerX;
 
     boolean gameOver = false;
-    int turns = 0;
 
     TicTacToe() {
         frame.setVisible(true);
@@ -74,12 +73,13 @@ public class TicTacToe {
                         if (gameOver) return;
                         JButton tile = (JButton) e.getSource();
                         if (tile.getText() == "") {
-                            tile.setText(currentPlayer);
-                            turns++;
+                            tile.setText(currentPlayer.getText());
+                            currentPlayer.setTile(tile);
                             checkWinner();
                             if (!gameOver) {
                                 currentPlayer = currentPlayer == playerX ? playerO : playerX;
-                                textLabel.setText(currentPlayer + "'s turn.");
+                                highlightNextTile();
+                                textLabel.setText(currentPlayer.getText() + "'s turn.");
                             }
                         }
                     }
@@ -140,25 +140,22 @@ public class TicTacToe {
             gameOver = true;
             return;
         }
-
-        if (turns == 9) {
-            for (int row = 0; row < 3; row++) {
-                for (int col = 0; col < 3; col++) {
-                    setTie(board[row][col]);
-                }
-            }
-            gameOver = true;
-        }
     }
 
     void setWinner(JButton tile) {
         tile.setBackground(Color.green);
-        textLabel.setText(currentPlayer + " is the winner!");
+        textLabel.setText((currentPlayer.getText() + " is the winner!"));
     }
 
-    void setTie(JButton tile) {
-        tile.setBackground(Color.red);
-        textLabel.setText("Tie!");
+    void highlightNextTile() {
+        if (currentPlayer == playerX) {
+            playerX.getNextTile(true);
+            playerO.getNextTile(false);
+        }
+        else {
+            playerO.getNextTile(true);
+            playerX.getNextTile(false);
+        }
     }
 
     void newGame() {
@@ -166,9 +163,11 @@ public class TicTacToe {
             for (int col = 0; col < 3; col++) {
                 board[row][col].setText("");
                 board[row][col].setBackground(Color.lightGray);
+                board[row][col].setForeground(Color.black);
             }
         }
-        turns = 0;
+        playerX.resetGame();
+        playerO.resetGame();
         currentPlayer = playerX;
         gameOver = false;
         textLabel.setText("Infinite Tic Tac Toe");
