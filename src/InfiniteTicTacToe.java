@@ -2,7 +2,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class TicTacToe {
+public class InfiniteTicTacToe {
     int boardWidth = 600;
     int boardHeight = 700;
 
@@ -19,7 +19,7 @@ public class TicTacToe {
 
     boolean gameOver = false;
 
-    TicTacToe() {
+    InfiniteTicTacToe() {
         frame.setVisible(true);
         frame.setSize(boardWidth, boardHeight);
         frame.setLocationRelativeTo(null);
@@ -175,6 +175,6 @@ public class TicTacToe {
     }
 
     public static void main(String[] args) throws Exception {
-        TicTacToe ticTacToe = new TicTacToe();
+        InfiniteTicTacToe ticTacToe = new InfiniteTicTacToe();
     }
 }
