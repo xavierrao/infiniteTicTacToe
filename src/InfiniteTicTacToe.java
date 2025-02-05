@@ -10,7 +10,7 @@ public class InfiniteTicTacToe {
     JLabel textLabel = new JLabel();
     JPanel textPanel = new JPanel();
     JPanel boardPanel = new JPanel();
-    JButton newGameButton = new JButton("New Game");
+    JButton newGameButton = new JButton("<html><font color = light gray>New Game</font></html>");
 
     JButton[][] board = new JButton[3][3];
     Player playerX = new Player("X");
@@ -42,6 +42,9 @@ public class InfiniteTicTacToe {
         newGameButton.setFont(new Font("Arial", Font.BOLD, 25));
         newGameButton.setFocusable(false);
         newGameButton.setBackground(Color.gray);
+        if (!gameOver) {
+            newGameButton.setEnabled(false);
+        }
         newGameButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 newGame();
@@ -146,6 +149,7 @@ public class InfiniteTicTacToe {
         tile.setBackground(Color.green);
         tile.setForeground(Color.black);
         textLabel.setText((currentPlayer.getText() + " is the winner!"));
+        newGameButton.setEnabled(true);
     }
 
     void highlightNextTile() {
@@ -167,6 +171,7 @@ public class InfiniteTicTacToe {
                 board[row][col].setForeground(Color.black);
             }
         }
+        newGameButton.setEnabled(false);
         playerX.resetGame();
         playerO.resetGame();
         currentPlayer = playerX;
