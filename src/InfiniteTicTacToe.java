@@ -183,3 +183,11 @@ public class InfiniteTicTacToe {
         InfiniteTicTacToe ticTacToe = new InfiniteTicTacToe();
     }
 }
+
+/*  
+    Update .jar file:
+    jar uf InfiniteTicTacToe.jar src/InfiniteTicTacToe.java 
+    
+    Run .jar file:
+    java -jar InfiniteTicTacToe.jar
+*/
