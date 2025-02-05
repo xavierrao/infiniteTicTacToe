@@ -1,18 +1,16 @@
-## Getting Started
+# Infinite Tic Tac Toe
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Infinite Tic Tac Toe is based off the GiiKER Tic Tac Toe Bolt Game.
 
-## Folder Structure
+Like Tic-Tac-Toe, you have to place 3 of your mark in a line, whether it be horizontal, vertical, or diagonal. Unlike Tic-Tac-Toe, you can only have 3 marks on the grid at a time. This means that when you place your 4th mark, your 1st mark disappears and so on. You cannot place your 4th mark in the same space as your 1st mark. After each player has placed 3 marks, one mark will turn red to indicate that it is the one to disappear. That will happen until the game ends. Good luck and have fun!
 
-The workspace contains two folders by default, where:
+## Download
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+1. Make sure you have Java installed
+2. Download the `.jar` file [here](https://github.com/xavierrao/infiniteTicTacToe/blob/master/InfiniteTicTacToe.jar)
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+## Usage
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+Double click the .jar file or run this code in the terminal:
 
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+`java -jar [path to jar file]/InfiniteTicTacToe.jar`
