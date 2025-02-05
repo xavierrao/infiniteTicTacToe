@@ -144,6 +144,7 @@ public class TicTacToe {
 
     void setWinner(JButton tile) {
         tile.setBackground(Color.green);
+        tile.setForeground(Color.black);
         textLabel.setText((currentPlayer.getText() + " is the winner!"));
     }
 
